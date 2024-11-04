@@ -1,69 +1,40 @@
-// import 'package:flutter/material.dart';
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Bandhon',
-//       theme: ThemeData(
-//         // This is the theme of your application.
-//         //
-//         // TRY THIS: Try running your application with "flutter run". You'll see
-//         // the application has a purple toolbar. Then, without quitting the app,
-//         // try changing the seedColor in the colorScheme below to Colors.green
-//         // and then invoke "hot reload" (save your changes or press the "hot
-//         // reload" button in a Flutter-supported IDE, or press "r" if you used
-//         // the command line to start the app).
-//         //
-//         // Notice that the counter didn't reset back to zero; the application
-//         // state is not lost during the reload. To reset the state, use hot
-//         // restart instead.
-//         //
-//         // This works for code too, not just values: Most code changes can be
-//         // tested with just a hot reload.
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//       ),
-//       home: const MyHomePage(title: 'Bandhon Demo'),
-//     );
-//   }
-// }
-//
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
-//
-//   // This widget is the home page of your application. It is stateful, meaning
-//   // that it has a State object (defined below) that contains fields that affect
-//   // how it looks.
-//
-//   // This class is the configuration for the state. It holds the values (in this
-//   // case the title) provided by the parent (in this case the App widget) and
-//   // used by the build method of the State. Fields in a Widget subclass are
-//   // always marked "final".
-//
-//   final String title;
-//
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
+import 'package:bandhan/communication.dart';
+import 'package:bandhan/easAdvocacy.dart';
+import 'package:bandhan/guideline.dart';
+import 'package:bandhan/outletAndCallCard.dart';
+import 'package:bandhan/outletLocation.dart';
+import 'package:bandhan/reward.dart';
 import 'package:flutter/material.dart';
+import 'homePage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+      ),
+
+      // home: LoginPage(),
+
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+        '/communication': (context) => Communication(),
+        '/outletCall': (context) => OutletAndCallCard(),
+        '/reward': (context) => Reward(),
+        '/outletLocation': (context) => Outletlocation(),
+        '/easAdvocacy': (context) => EASAdvocacy(),
+        '/guideline': (context) => Guideline(),
+
+
+      },
     );
   }
 }
@@ -113,59 +84,90 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildRadioOption("বন্ধন", "বন্ধন"),
-                      _buildRadioOption("জেনিথ", "জেনিথ"),
-                      _buildRadioOption("শেখ", "শেখ"),
+                      _buildRadioOption("বন্ধন", "option1"),
+                      _buildRadioOption("জেনিথ", "option2"),
+                      _buildRadioOption("শেখ", "option3"),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
 
                   // Input fields
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'মোবাইল নাম্বার লিখুন',
-                      border: OutlineInputBorder(
+                      labelStyle: TextStyle(color: Colors.black54),
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
+                        // Orange border when focused
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
+                    style: TextStyle(color: Colors.black),
                     keyboardType: TextInputType.phone,
                   ),
                   SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'পাসওয়ার্ড',
+                      labelStyle: TextStyle(color: Colors.black54),
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
+                        // Orange border when focused
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
+                    style: TextStyle(color: Colors.black),
                     obscureText: true,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
 
-                  // Login button
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle login action
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+                  SizedBox(
+                    width: double.infinity, // Full-width button
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Handle login action
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepOrange,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 15), // Adjust padding if needed
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                    ),
-                    child: Text(
-                      'লগইন',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold, // Makes the text bold
-                        color: Colors.white,
+                      child: Text(
+                        'লগইন',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold, // Makes the text bold
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
 
+
+
                   // Version text
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Text(
                     'v2.9.13',
                     style: TextStyle(color: Colors.deepOrange),
@@ -175,6 +177,14 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        child: Icon(Icons.arrow_forward_sharp),
+        backgroundColor: Colors.green,
+        onPressed: () {
+          Navigator.pushNamed(context, '/home');
+        },
       ),
     );
   }
