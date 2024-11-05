@@ -4,7 +4,10 @@ class Guideline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFDE8E5),
       appBar: AppBar(
+        backgroundColor: Color(0xFFFDE8E5),
+
         title: Center(
           child: Text(
             'গাইডলাইন',

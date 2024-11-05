@@ -4,7 +4,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFDE8E5),
+
       appBar: AppBar(
+        backgroundColor: Color(0xFFFDE8E5),
         title: Text('Home',
           style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),
         ),
@@ -17,7 +20,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(
               Icons.notifications,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -25,7 +28,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -72,6 +75,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Stack(
+
         children: [
           Opacity(
             opacity: 0.1,

@@ -4,7 +4,11 @@ class Communication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFDE8E5),
+
       appBar: AppBar(
+        backgroundColor: Color(0xFFFDE8E5),
+
         title: Center(
           child: Text(
             'কমিউনিকেশন',
@@ -20,7 +24,7 @@ class Communication extends StatelessWidget {
             icon: Icon(
               Icons.notifications,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -28,7 +32,7 @@ class Communication extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),

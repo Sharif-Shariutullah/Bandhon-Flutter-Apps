@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class OutletAndCallCard extends StatelessWidget {
-  // String selectedOutlet = "Select outlet";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
+        backgroundColor: Color(0xFFFDE8E5),
         title: Expanded(
           child: Text(
             'আউটলেট পারফরমেন্স & কল কার্ড',
@@ -27,7 +28,7 @@ class OutletAndCallCard extends StatelessWidget {
             icon: Icon(
               Icons.notifications,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -35,7 +36,7 @@ class OutletAndCallCard extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -90,35 +91,124 @@ class _UIExampleState extends State<UIExample> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 16),
-            Text(
-              'আউটলেট কোড',
-              style: TextStyle(
-                color: Colors.deepOrange,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            DropdownButtonFormField<String>(
-              value: selectedOutlet,
-              onChanged: (newValue) {
-                setState(() {
-                  selectedOutlet = newValue!;
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                    value: "Select outlet", child: Text("Select outlet")),
-                DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
-                DropdownMenuItem(value: "Option 2", child: Text("Option 2")),
-                DropdownMenuItem(value: "Option 3", child: Text("Option 3")),
+
+            // --------------------this is professional to me
+
+            // Text(
+            //   'আউটলেট কোড',
+            //   style: TextStyle(
+            //     color: Colors.black87,
+            //     fontSize: 24,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            // SizedBox(height: 10),
+            // DropdownButtonFormField<String>(
+            //   value: selectedOutlet,
+            //   onChanged: (newValue) {
+            //     setState(() {
+            //       selectedOutlet = newValue!;
+            //     });
+            //   },
+            //   items: [
+            //     DropdownMenuItem(
+            //         value: "Select outlet", child: Text("Select outlet")),
+            //     DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
+            //     DropdownMenuItem(value: "Option 2", child: Text("Option 2")),
+            //     DropdownMenuItem(value: "Option 3", child: Text("Option 3")),
+            //   ],
+            //   decoration: InputDecoration(
+            //     filled: true,
+            //     fillColor: Colors.white,
+            //     enabledBorder: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(8),
+            //       borderSide:
+            //       BorderSide(color: Colors.deepOrange, width: 2),
+            //     ),
+            //
+            //     focusedBorder: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(8),
+            //       borderSide: BorderSide(color: Colors.deepOrange, width: 2), // Sets the color when focused
+            //     ),
+            //
+            //     errorBorder: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(8),
+            //       borderSide: BorderSide(color: Colors.red, width: 2), // Sets the color for error state
+            //     ),
+            //     contentPadding: EdgeInsets.symmetric(
+            //         horizontal: 12, vertical: 10),
+            //     hintText: formatDate(endDate),
+            //   ),
+            // ),
+            // SizedBox(height: 60),
+
+            Row(
+              children: [
+                Expanded(
+                  flex: 4, // 4 parts for the text (35-40%)
+                  child: Text(
+                    'আউটলেট কোড',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 8), // Space between text and dropdown
+                Expanded(
+                  flex: 6, // 6 parts for the dropdown (60-65%)
+                  child: DropdownButtonFormField<String>(
+                    value: selectedOutlet,
+                    onChanged: (newValue) {
+                      setState(() {
+                        selectedOutlet = newValue!;
+                      });
+                    },
+                    items: [
+                      DropdownMenuItem(
+                          value: "Select outlet", child: Text("Select outlet")),
+                      DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
+                      DropdownMenuItem(value: "Option 2", child: Text("Option 2")),
+                      DropdownMenuItem(value: "Option 3", child: Text("Option 3")),
+                    ],
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.deepOrange, width: 2),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.deepOrange, width: 2),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.red, width: 2),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    ),
+                  ),
+                ),
               ],
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Outlet Code',
-              ),
             ),
+
+
+
             SizedBox(height: 30),
+
+
+
+
+
+
+
+
+
+
+
+
             Text(
               'এই আউটলেট এর পারফরমেন্স দেখতে শুরু ও শেষ এর তারিখ নির্বাচন করুন',
               style: TextStyle(
@@ -149,15 +239,28 @@ class _UIExampleState extends State<UIExample> {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          border: OutlineInputBorder(
+
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide:
                                 BorderSide(color: Colors.deepOrange, width: 2),
                           ),
+
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.deepOrange, width: 2), // Sets the color when focused
+                          ),
+
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.red, width: 2), // Sets the color for error state
+                          ),
+
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12, vertical: 10),
                           hintText: formatDate(startDate),
                         ),
+
                       ),
                     ],
                   ),
@@ -181,10 +284,20 @@ class _UIExampleState extends State<UIExample> {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          border: OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide:
-                                BorderSide(color: Colors.deepOrange, width: 2),
+                            BorderSide(color: Colors.deepOrange, width: 2),
+                          ),
+
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.deepOrange, width: 2), // Sets the color when focused
+                          ),
+
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.red, width: 2), // Sets the color for error state
                           ),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12, vertical: 10),
@@ -279,14 +392,14 @@ class _UIExampleState extends State<UIExample> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Open menu
-        },
-        backgroundColor: Colors.deepOrange,
-        child: Icon(Icons.menu),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // Open menu
+      //   },
+      //   backgroundColor: Colors.deepOrange,
+      //   child: Icon(Icons.menu),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }
