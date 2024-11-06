@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class OutletAndCallCard extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Color(0xFFFDE8E5),
         title: Expanded(
@@ -57,6 +55,8 @@ class _UIExampleState extends State<UIExample> {
   List<String> outletOptions = ['Outlet 1', 'Outlet 2', 'Outlet 3', 'Outlet 4'];
   DateTime startDate = DateTime.now();
   DateTime endDate = DateTime.now();
+
+  bool isTextVisible = false; // Step 1: Add this variable
 
   // Function to format dates
   String formatDate(DateTime date) {
@@ -168,46 +168,39 @@ class _UIExampleState extends State<UIExample> {
                     items: [
                       DropdownMenuItem(
                           value: "Select outlet", child: Text("Select outlet")),
-                      DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
-                      DropdownMenuItem(value: "Option 2", child: Text("Option 2")),
-                      DropdownMenuItem(value: "Option 3", child: Text("Option 3")),
+                      DropdownMenuItem(
+                          value: "Option 1", child: Text("Option 1")),
+                      DropdownMenuItem(
+                          value: "Option 2", child: Text("Option 2")),
+                      DropdownMenuItem(
+                          value: "Option 3", child: Text("Option 3")),
                     ],
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.deepOrange, width: 2),
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.deepOrange, width: 2),
+                        borderSide:
+                            BorderSide(color: Colors.deepOrange, width: 2),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.red, width: 2),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     ),
                   ),
                 ),
               ],
             ),
 
-
-
             SizedBox(height: 30),
-
-
-
-
-
-
-
-
-
-
-
 
             Text(
               'এই আউটলেট এর পারফরমেন্স দেখতে শুরু ও শেষ এর তারিখ নির্বাচন করুন',
@@ -239,28 +232,27 @@ class _UIExampleState extends State<UIExample> {
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide:
                                 BorderSide(color: Colors.deepOrange, width: 2),
                           ),
-
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.deepOrange, width: 2), // Sets the color when focused
+                            borderSide: BorderSide(
+                                color: Colors.deepOrange,
+                                width: 2), // Sets the color when focused
                           ),
-
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.red, width: 2), // Sets the color for error state
+                            borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 2), // Sets the color for error state
                           ),
-
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12, vertical: 10),
                           hintText: formatDate(startDate),
                         ),
-
                       ),
                     ],
                   ),
@@ -287,17 +279,19 @@ class _UIExampleState extends State<UIExample> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide:
-                            BorderSide(color: Colors.deepOrange, width: 2),
+                                BorderSide(color: Colors.deepOrange, width: 2),
                           ),
-
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.deepOrange, width: 2), // Sets the color when focused
+                            borderSide: BorderSide(
+                                color: Colors.deepOrange,
+                                width: 2), // Sets the color when focused
                           ),
-
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.red, width: 2), // Sets the color for error state
+                            borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 2), // Sets the color for error state
                           ),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12, vertical: 10),
@@ -313,10 +307,12 @@ class _UIExampleState extends State<UIExample> {
             OutlinedButton(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
-                side: BorderSide(color: Colors.deepOrange),
-                // Set the border color here
-                padding: EdgeInsets.symmetric(
-                    horizontal: 16), // Adjust padding if needed
+                side: BorderSide(color: Colors.deepOrange), // Set border color
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius
+                      .zero, // Set border radius to zero for square edges
+                ),
               ),
               child: Row(
                 children: [
@@ -328,7 +324,7 @@ class _UIExampleState extends State<UIExample> {
                         style: TextStyle(
                           color: Colors.deepOrange,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          fontSize: 17,
                         ),
                       ),
                     ),
@@ -337,36 +333,65 @@ class _UIExampleState extends State<UIExample> {
               ),
             ),
             SizedBox(height: 8),
+
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  isTextVisible = !isTextVisible;
+                });
+              },
               style: OutlinedButton.styleFrom(
-                side: BorderSide(color: Colors.deepOrange),
-                // Set the border color here
-                padding: EdgeInsets.symmetric(
-                    horizontal: 16), // Adjust padding if needed
+                side: BorderSide(color: Colors.deepOrange), // Set border color
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius
+                      .zero, // Set border radius to zero for square edges
+                ),
               ),
-              child: Row(
+              child: Column(
+                // Wrap everything in a Column
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'আইএমএস ব্র্যান্ড স্প্লিট',
-                        style: TextStyle(
-                          color: Colors.deepOrange,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'আইএমএস ব্র্যান্ড স্প্লিট',
+                            style: TextStyle(
+                              color: Colors.deepOrange,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 17,
+                            ),
+                          ),
                         ),
                       ),
+                      Icon(
+                        isTextVisible
+                            ? Icons
+                                .remove_circle_sharp // Minus icon when expanded
+                            : Icons.add_circle_sharp,
+                        // Plus icon when collapsed
+                        color: Colors.deepOrange,
+                      ),
+                    ],
+                  ),
+                  if (isTextVisible) // Conditionally display the toggle text
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: Text(
+                        'অনুগ্রহকে করে প্রথমে একটি তারিখ/আউটলেট নির্বাচন করুন',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.deepOrange,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                  Icon(
-                    Icons.add_circle_sharp,
-                    color: Colors.deepOrange,
-                  ),
                 ],
               ),
             ),
+
             SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -376,7 +401,11 @@ class _UIExampleState extends State<UIExample> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
-                    // padding: EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Slight rounding
+                    ),
+                    // padding: EdgeInsets.symmetric(vertical: 14), // Adjust padding if needed
                   ),
                   child: Text(
                     'কল কার্ড',

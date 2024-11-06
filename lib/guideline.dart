@@ -10,7 +10,7 @@ class Guideline extends StatelessWidget {
 
         title: Center(
           child: Text(
-            'গাইডলাইন',
+            'গাইডলাইন প্যানেল',
             style: TextStyle(
                 color: Colors.deepOrange, fontWeight: FontWeight.bold),
           ),
@@ -23,7 +23,7 @@ class Guideline extends StatelessWidget {
             icon: Icon(
               Icons.notifications,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
@@ -31,20 +31,13 @@ class Guideline extends StatelessWidget {
             icon: Icon(
               Icons.more_vert,
               color: Colors.deepOrange,
-              size: 30.0,
+              size: 40.0,
             ),
             onPressed: () {},
           ),
         ],
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/guideline');
-          },
-          child: Text('Guideline'),
-        ),
-      ),
+
     );
   }
 }
