@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:bandhan/CustomDrawer.dart';
+import 'package:bandhan/DrawerButton.dart';
 
 class Communication extends StatelessWidget {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      key: _scaffoldKey,
+
       backgroundColor: Color(0xFFFDE8E5),
 
       appBar: AppBar(
@@ -19,6 +27,18 @@ class Communication extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.deepOrange,
         ),
+
+        leading: Navigator.canPop(context)
+            ? IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
+            : null,
+
+
+
         actions: [
           IconButton(
             icon: Icon(
@@ -52,14 +72,17 @@ class Communication extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               children: <Widget>[
                 _buildButton(context, Icons.podcasts, 'কমিউনিকেশন', 1.0,
-                    '/communication'),
+                    '/communicationPanel'),
                 _buildButton(context, Icons.my_library_books, 'গাইডলাইন', 1.0,
                     '/guideline'),
               ],
             ),
           ),
+          DrawerIcon(scaffoldKey: _scaffoldKey),
         ],
+
       ),
+      drawer: CustomDrawer(),
     );
   }
 

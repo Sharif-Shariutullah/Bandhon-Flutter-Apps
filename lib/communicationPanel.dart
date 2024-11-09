@@ -3,7 +3,7 @@ import 'package:bandhan/CustomDrawer.dart';
 import 'package:bandhan/DrawerButton.dart';
 
 
-class Guideline extends StatelessWidget {
+class Communicationpanel extends StatelessWidget {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -19,7 +19,7 @@ class Guideline extends StatelessWidget {
 
         title: Center(
           child: Text(
-            'গাইডলাইন প্যানেল',
+            'কমিউনিকেশন প্যানেল',
             style: TextStyle(
                 color: Colors.deepOrange, fontWeight: FontWeight.bold),
           ),

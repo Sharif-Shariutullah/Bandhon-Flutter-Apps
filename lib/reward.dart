@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:bandhan/CustomDrawer.dart';
+import 'package:bandhan/DrawerButton.dart';
+
+
 
 class Reward extends StatelessWidget {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+
       backgroundColor: Color(0xFFFDE8E5),
       appBar: AppBar(
         backgroundColor: Color(0xFFFDE8E5),
@@ -18,6 +28,17 @@ class Reward extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.deepOrange,
         ),
+
+
+        leading: Navigator.canPop(context)
+            ? IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
+            : null,
+
         actions: [
           IconButton(
             icon: Icon(
@@ -37,8 +58,13 @@ class Reward extends StatelessWidget {
           ),
         ],
       ),
-      body: UIExample(),
-    );
+        body: Stack(
+          children: [
+            UIExample(),
+            DrawerIcon(scaffoldKey: _scaffoldKey),
+          ],
+        ),
+        drawer: CustomDrawer());
   }
 }
 

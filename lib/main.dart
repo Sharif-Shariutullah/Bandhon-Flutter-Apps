@@ -4,6 +4,11 @@ import 'package:bandhan/guideline.dart';
 import 'package:bandhan/outletAndCallCard.dart';
 import 'package:bandhan/outletLocation.dart';
 import 'package:bandhan/reward.dart';
+import 'package:bandhan/CustomDrawer.dart';
+import 'package:bandhan/DrawerButton.dart';
+import 'package:bandhan/communicationPanel.dart';
+import 'package:bandhan/notificationPush.dart';
+
 import 'package:flutter/material.dart';
 import 'homePage.dart';
 
@@ -32,8 +37,8 @@ class MyApp extends StatelessWidget {
         '/outletLocation': (context) => Outletlocation(),
         '/easAdvocacy': (context) => EASAdvocacy(),
         '/guideline': (context) => Guideline(),
-
-
+        '/notification': (context) => notificationPush(),
+        '/communicationPanel': (context) => Communicationpanel(),
       },
     );
   }
@@ -85,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildRadioOption("বন্ধন", "option1"),
+                      SizedBox(width: 20),
                       _buildRadioOption("জেনিথ", "option2"),
+                      SizedBox(width: 20),
                       _buildRadioOption("শেখ", "option3"),
                     ],
                   ),
@@ -94,8 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                   // Input fields
                   TextField(
                     decoration: InputDecoration(
-                      labelText: 'মোবাইল নাম্বার লিখুন',
-                      labelStyle: TextStyle(color: Colors.black54),
+                      // labelText: 'মোবাইল নাম্বার লিখুন',
+                      // labelStyle: TextStyle(color: Colors.black54),
+                      hintText: 'মোবাইল নাম্বার লিখুন',
+                      hintStyle: TextStyle(color: Colors.black54),
                       filled: true,
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
@@ -116,8 +125,11 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
-                      labelText: 'পাসওয়ার্ড',
-                      labelStyle: TextStyle(color: Colors.black54),
+                      // labelText: 'পাসওয়ার্ড',
+                      // labelStyle: TextStyle(color: Colors.black54),
+                      hintText: 'পাসওয়ার্ড',
+                      hintStyle: TextStyle(color: Colors.black54),
+
                       filled: true,
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
@@ -144,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity, // Full-width button
                     child: ElevatedButton(
                       onPressed: () {
-                        // Handle login action
+                        Navigator.pushNamed(context, '/home');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepOrange,
@@ -167,24 +179,18 @@ class _LoginPageState extends State<LoginPage> {
 
 
                   // Version text
-                  SizedBox(height: 30),
+                  SizedBox(height: 18),
                   Text(
                     'v2.9.13',
-                    style: TextStyle(color: Colors.deepOrange),
+                    style: TextStyle(color: Colors.deepOrange,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,),
                   ),
                 ],
               ),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 10,
-        child: Icon(Icons.arrow_forward_sharp),
-        backgroundColor: Colors.green,
-        onPressed: () {
-          Navigator.pushNamed(context, '/home');
-        },
       ),
     );
   }

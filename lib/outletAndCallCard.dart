@@ -1,47 +1,70 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:bandhan/CustomDrawer.dart';
+import 'package:bandhan/DrawerButton.dart';
 
 class OutletAndCallCard extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFDE8E5),
-        title: Expanded(
-          child: Text(
-            'আউটলেট পারফরমেন্স & কল কার্ড',
-            style: TextStyle(
-              color: Colors.deepOrange,
-              fontWeight: FontWeight.bold,
+        key: _scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFDE8E5),
+          title: Expanded(
+            child: Text(
+              'আউটলেট পারফরমেন্স & কল কার্ড',
+              style: TextStyle(
+                color: Colors.deepOrange,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
           ),
+          iconTheme: IconThemeData(
+            color: Colors.deepOrange,
+          ),
+          // automaticallyImplyLeading: false,
+
+          leading: Navigator.canPop(context)
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              : null,
+
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.deepOrange,
+                size: 40.0,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.deepOrange,
+                size: 40.0,
+              ),
+              onPressed: () {},
+            ),
+          ],
         ),
-        iconTheme: IconThemeData(
-          color: Colors.deepOrange,
+        // body: UIExample(),
+
+        body: Stack(
+          children: [
+            UIExample(),
+            DrawerIcon(scaffoldKey: _scaffoldKey),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.deepOrange,
-              size: 40.0,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.deepOrange,
-              size: 40.0,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: UIExample(),
-    );
+        drawer: CustomDrawer());
   }
 }
 
@@ -51,6 +74,8 @@ class UIExample extends StatefulWidget {
 }
 
 class _UIExampleState extends State<UIExample> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   String selectedOutlet = 'Select outlet';
   List<String> outletOptions = ['Outlet 1', 'Outlet 2', 'Outlet 3', 'Outlet 4'];
   DateTime startDate = DateTime.now();
@@ -84,6 +109,7 @@ class _UIExampleState extends State<UIExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xFFFDE8E5),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -418,17 +444,11 @@ class _UIExampleState extends State<UIExample> {
                 ),
               ],
             ),
+
+            // DrawerIcon(scaffoldKey: _scaffoldKey),
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     // Open menu
-      //   },
-      //   backgroundColor: Colors.deepOrange,
-      //   child: Icon(Icons.menu),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }
