@@ -77,15 +77,48 @@ class HomePage extends StatelessWidget {
               Navigator.pushNamed(context, '/notification');
             },
           ),
-          IconButton(
+          PopupMenuButton<int>(
             icon: Icon(
               Icons.more_vert,
               color: Colors.deepOrange,
               size: 40.0,
             ),
-            onPressed: () {
-
-            },
+            padding: EdgeInsets.all(8.0),
+            onSelected: (item) => onSelected(context, item),
+            offset: Offset(0, 50),
+            color: Colors.deepOrange,
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(
+                value: 0,
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Icon(Icons.settings, color: Colors.white),
+                      // SizedBox(width: 8),
+                      Text('সেটিং',
+                          style:
+                          TextStyle(color: Colors.white, fontSize: 18)),
+                    ],
+                  ),
+                ),
+              ),
+              PopupMenuItem<int>(
+                value: 1,
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Icon(Icons.logout, color: Colors.white),
+                      // SizedBox(width: 8),
+                      Text('লগ আউট',
+                          style:
+                          TextStyle(color: Colors.white, fontSize: 18)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -131,3 +164,15 @@ class HomePage extends StatelessWidget {
 
 
 
+
+void onSelected(BuildContext context, int item) {
+  switch (item) {
+    case 0:
+      Navigator.pushNamed(context, '/settings');
+      break;
+    case 1:
+      Navigator.pushNamed(context, '/login');
+
+      break;
+  }
+}
