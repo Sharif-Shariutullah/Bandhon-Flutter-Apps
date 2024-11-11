@@ -1,99 +1,95 @@
+import 'package:bandhan/SearchableDropdown.dart';
+import 'package:bandhan/easAdvocacy.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:bandhan/CustomDrawer.dart';
 import 'package:bandhan/DrawerButton.dart';
 
 class Outletlocation extends StatelessWidget {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-
-      backgroundColor: Color(0xFFFDE8E5),
-
-      appBar: AppBar(
+        key: _scaffoldKey,
         backgroundColor: Color(0xFFFDE8E5),
-
-        title: Center(
-          child: Text(
-            'আউটলেট লোকেশন ',
-            style: TextStyle(
-                color: Colors.deepOrange, fontWeight: FontWeight.bold),
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.deepOrange,
-        ),
-
-        leading: Navigator.canPop(context)
-            ? IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        )
-            : null,
-
-
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.deepOrange,
-              size: 40.0,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFDE8E5),
+          title: Center(
+            child: Text(
+              'আউটলেট লোকেশন ',
+              style: TextStyle(
+                  color: Colors.deepOrange, fontWeight: FontWeight.bold),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/notification');
-            },
           ),
-          PopupMenuButton<int>(
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.deepOrange,
-              size: 40.0,
-            ),
-            padding: EdgeInsets.all(8.0),
-            onSelected: (item) => onSelected(context, item),
-            offset: Offset(0, 50),
+          iconTheme: const IconThemeData(
             color: Colors.deepOrange,
-            itemBuilder: (context) => [
-              PopupMenuItem<int>(
-                value: 0,
-                child: Center(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Icon(Icons.settings, color: Colors.white),
-                      // SizedBox(width: 8),
-                      Text('সেটিং',
-                          style:
-                          TextStyle(color: Colors.white, fontSize: 18)),
-                    ],
-                  ),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 1,
-                child: Center(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Icon(Icons.logout, color: Colors.white),
-                      // SizedBox(width: 8),
-                      Text('লগ আউট',
-                          style:
-                          TextStyle(color: Colors.white, fontSize: 18)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
           ),
-        ],
-      ),
+          leading: Navigator.canPop(context)
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              : null,
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.deepOrange,
+                size: 40.0,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/notification');
+              },
+            ),
+            PopupMenuButton<int>(
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.deepOrange,
+                size: 40.0,
+              ),
+              padding: EdgeInsets.all(8.0),
+              onSelected: (item) => onSelected(context, item),
+              offset: Offset(0, 50),
+              color: Colors.deepOrange,
+              itemBuilder: (context) => [
+                PopupMenuItem<int>(
+                  value: 0,
+                  child: Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // Icon(Icons.settings, color: Colors.white),
+                        // SizedBox(width: 8),
+                        Text('সেটিং',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 18)),
+                      ],
+                    ),
+                  ),
+                ),
+                PopupMenuItem<int>(
+                  value: 1,
+                  child: Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // Icon(Icons.logout, color: Colors.white),
+                        // SizedBox(width: 8),
+                        Text('লগ আউট',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 18)),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
         body: Stack(
           children: [
             UIExample(),
@@ -147,7 +143,6 @@ class _UIExampleState extends State<UIExample> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
             SizedBox(height: 20),
             Row(
               children: [
@@ -188,19 +183,19 @@ class _UIExampleState extends State<UIExample> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                        BorderSide(color: Colors.deepOrange, width: 2),
+                            BorderSide(color: Colors.deepOrange, width: 2),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                        BorderSide(color: Colors.deepOrange, width: 2),
+                            BorderSide(color: Colors.deepOrange, width: 2),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.red, width: 2),
                       ),
                       contentPadding:
-                      EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     ),
                   ),
                 ),
@@ -225,3 +220,106 @@ void onSelected(BuildContext context, int item) {
       break;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// class UIExample extends StatefulWidget {
+//   @override
+//   _UIExampleState createState() => _UIExampleState();
+// }
+//
+// class _UIExampleState extends State<UIExample> {
+//   DateTime startDate = DateTime.now();
+//   DateTime endDate = DateTime.now();
+//   List<String> outletOptions = ['Outlet 1', 'Outlet 2', 'Outlet 3', 'Outlet 4'];
+//
+//   String formatDate(DateTime date) {
+//     return DateFormat('yyyy-MM-dd').format(date);
+//   }
+//
+//   Future<void> _selectDate(BuildContext context, bool isStart) async {
+//     final DateTime? picked = await showDatePicker(
+//       context: context,
+//       initialDate: isStart ? startDate : endDate,
+//       firstDate: DateTime(2000),
+//       lastDate: DateTime(2101),
+//     );
+//     if (picked != null && picked != (isStart ? startDate : endDate)) {
+//       setState(() {
+//         if (isStart) {
+//           startDate = picked;
+//         } else {
+//           endDate = picked;
+//         }
+//       });
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Color(0xFFFDE8E5),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.stretch,
+//           children: [
+//             SizedBox(height: 20),
+//             Row(
+//               children: [
+//                 Expanded(
+//                   flex: 4,
+//                   child: Text(
+//                     'আউটলেট কোড',
+//                     style: TextStyle(
+//                       color: Colors.deepOrange,
+//                       fontSize: 18,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                 ),
+//                 SizedBox(width: 8),
+//                 Expanded(
+//                   flex: 6,
+//                   child: SearchableDropdown(
+//                     items: outletOptions,
+//                     hintText: 'Search outlets...',
+//                     onChanged: (value) {
+//                       print('Selected: $value');
+//                     },
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             SizedBox(height: 30),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// void onSelected(BuildContext context, int item) {
+//   switch (item) {
+//     case 0:
+//       Navigator.pushNamed(context, '/settings');
+//       break;
+//     case 1:
+//       Navigator.pushNamed(context, '/login');
+//       break;
+//   }
+// }

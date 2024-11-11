@@ -1,3 +1,4 @@
+import 'package:bandhan/SearchableDropdown.dart';
 import 'package:bandhan/communication.dart';
 import 'package:bandhan/easAdvocacy.dart';
 import 'package:bandhan/guideline.dart';
@@ -10,6 +11,10 @@ import 'package:bandhan/communicationPanel.dart';
 import 'package:bandhan/notificationPush.dart';
 import 'package:bandhan/loginPage.dart';
 import 'package:bandhan/settingsPage.dart';
+import 'package:bandhan/SearchableDropdown.dart';
+import 'package:bandhan/callAds.dart';
+import 'package:bandhan/callUpdate.dart';
+
 
 import 'package:flutter/material.dart';
 import 'homePage.dart';
@@ -25,6 +30,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
+        primaryColor: Colors.deepOrange,
+
       ),
 
       // home: LoginPage(),
@@ -43,6 +50,8 @@ class MyApp extends StatelessWidget {
         '/notification': (context) => notificationPush(),
         '/communicationPanel': (context) => Communicationpanel(),
         '/settings': (context) => SettingsPage(),
+        '/callAds': (context) => Callads(),
+        '/callUpdate': (context) => Callupdate(),
       },
     );
   }

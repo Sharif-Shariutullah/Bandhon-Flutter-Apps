@@ -461,7 +461,10 @@ class _UIExampleState extends State<UIExample> {
               // Aligns the button to the right
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Navigator.pushNamed(context, '/callAds');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
                     shape: RoundedRectangleBorder(
