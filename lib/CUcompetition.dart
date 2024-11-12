@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bandhan/CustomDrawer.dart';
 import 'package:bandhan/DrawerButton.dart';
 
-class Callupdate extends StatelessWidget {
+class Cucompetition extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -14,7 +14,7 @@ class Callupdate extends StatelessWidget {
         backgroundColor: Color(0xFFFDE8E5),
         title: Center(
           child: Text(
-            'কল আপডেট',
+            'কল আপডেট(Competition)',
             style: TextStyle(
                 color: Colors.deepOrange, fontWeight: FontWeight.bold),
           ),
@@ -24,11 +24,11 @@ class Callupdate extends StatelessWidget {
         ),
         leading: Navigator.canPop(context)
             ? IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
+          icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
             : null,
         actions: [
           IconButton(
@@ -218,7 +218,7 @@ class StockInputPage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/CUAvailablePOSM');
+                  Navigator.pushNamed(context, '/CUreward');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrange, // button color

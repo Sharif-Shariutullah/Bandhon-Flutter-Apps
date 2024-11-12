@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bandhan/CustomDrawer.dart';
 import 'package:bandhan/DrawerButton.dart';
 
-class Callupdate extends StatelessWidget {
+class Cureward extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -14,7 +14,7 @@ class Callupdate extends StatelessWidget {
         backgroundColor: Color(0xFFFDE8E5),
         title: Center(
           child: Text(
-            'কল আপডেট',
+            'কল আপডেট(Reward)',
             style: TextStyle(
                 color: Colors.deepOrange, fontWeight: FontWeight.bold),
           ),
@@ -24,11 +24,11 @@ class Callupdate extends StatelessWidget {
         ),
         leading: Navigator.canPop(context)
             ? IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
+          icon: Icon(Icons.arrow_back, color: Colors.deepOrange),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
             : null,
         actions: [
           IconButton(
@@ -218,13 +218,16 @@ class StockInputPage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/CUAvailablePOSM');
+                  // Add button functionality here
+                  // ডাটা সেভ করে আবার ইনপুট পেইজে রাউটিং করে নিয়ে যাবে।
+                  // এবং ডাটা সেভের সময় ডাটাসেভ যে হয়েছে সেটা নিয়ে কিছু সামারি সহ একাটা পপ আপ আসবে
+
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrange, // button color
                 ),
                 child: Text(
-                  'Next',
+                  'Submit',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

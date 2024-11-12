@@ -14,7 +14,10 @@ import 'package:bandhan/settingsPage.dart';
 import 'package:bandhan/SearchableDropdown.dart';
 import 'package:bandhan/callAds.dart';
 import 'package:bandhan/callUpdate.dart';
-
+import 'package:bandhan/CUAvailablePOSM.dart';
+import 'package:bandhan/CUcompetition.dart';
+import 'package:bandhan/CUpcm.dart';
+import 'package:bandhan/CUreward.dart';
 
 import 'package:flutter/material.dart';
 import 'homePage.dart';
@@ -52,6 +55,11 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => SettingsPage(),
         '/callAds': (context) => Callads(),
         '/callUpdate': (context) => Callupdate(),
+        '/CUAvailablePOSM': (context) => Cuavailableposm(),
+        '/CUpcm': (context) => Cupcm(),
+        '/CUcompetition': (context) => Cucompetition(),
+        '/CUreward': (context) => Cureward(),
+
       },
     );
   }
